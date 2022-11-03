@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {    
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Inter', sans-serif;
+    background: #FAFAFA;
+    color: #0d0d0d;
+    height: 115%;
+    align-items: center;
+    flex-direction: column;
+}
+
+body .header{
+    width: 100%;
+    height: 5.5em;
+    background: white;
+    border-bottom: solid 1px #0d0d0d12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .header .div{
+    width: 11em;
+    height: 3.4em;
+    background: #4BD97E;
+    color: white;
+    font-family: inter, sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .header .div_logo{
+    width: 11em;
+    height: 3.4em;
+    font-family: inter, sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: x-large;
+}
+
+body .header .nav{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+
+.main {
+    width: 60%;
+    margin-top: 10em;
+}
+
+.main header {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-bottom: 4em;
+}
+
+.main header .title {
+    font-size: -webkit-xxx-large;
+    font-weight: 700;
+    margin: 0;
+}
+
+.main header .subtitle {
+    font-weight: 500;
+    color: #0d0d0d6e;
+    margin: 0;
+}
+
+
+.main main ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+.main main ul li {
+    border-radius: 4px;
+    background: white;
+    box-shadow: #dedede47 0px 7px 20px 0px;
+    padding: 0em 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.main main ul li .votes {
+    background: #f2fff1;
+    width: 6.5em;
+    height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #b5f2ac70 0px 7px 14px 2px;
+    border-radius: 1em;
+    border: solid 3px #12bd12;
+    align-self: flex-end;
+    margin-right: -6em;
+    font-size: smaller;
+    font-weight: 700;
+    color: #000000ba;
+    position: relative;
+    margin-top: -1em;
+
+}
+
+.main main ul li .title {
+    font-size: xx-large;
+    margin-bottom: 14px;
+}
+
+.main main ul li .datetime {
+    margin: 0 0 2.5em 0;
+    font-weight: 700;
+    color: #0d0d0d6e;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

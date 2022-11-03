@@ -26,18 +26,18 @@ SECRET_KEY = 'django-insecure-)8ejpwcy*)vxmij(9(=ap!ij$#v+2qi8(jk8gok5@f+q=)4d(p
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# 'neemiasrenan.pythonanywhere.com'
 
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
+    'enquetes.apps.EnquetesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',    
+    'django.contrib.staticfiles',
 
 ]
 
