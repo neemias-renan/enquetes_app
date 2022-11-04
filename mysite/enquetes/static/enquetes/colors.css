@@ -1,0 +1,19 @@
+.colorGreen {
+    color: #4AD97F;
+}
+
+.colorGrey {
+    color: #666F7A;
+}
+
+.colorGrey:hover {
+    color: #444;
+}
+
+.colorGreen:hover{
+    color: #34b363;
+}
+
+a{
+    transition: background 0.5s ease, color 0.5s ease;
+}

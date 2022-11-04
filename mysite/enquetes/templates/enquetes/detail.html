@@ -7,57 +7,81 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'enquetes/style_detail.css' %}">
     <script src="{% static 'enquetes/js/detail.js' %}"></script>
-
+    <link rel="stylesheet" href="{% static 'enquetes/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'enquetes/colors.css' %}">
 </head>
 
 <body>
-    <header class="header">
-        <div class="nav">
-            <a href="{% url 'enquetes:index' %}"><div class="div_logo">Azenquete</div></a>
-            <div class="div">Crie uma enquete</div>
+    <nav class="nav">
+        <div class="nav-left"></div>
+
+        <div class="nav-center">
+            <a href="{% url 'enquetes:index' %}" class="nav--link colorGrey">Todas Enquetes</a>
+            <a href="{% url 'enquetes:index' %}" class="nav--link colorGreen">Criar Enquetes</a>
         </div>
-    </header>
+
+        <div class="nav-rigth">
+            <div class="hamburger-menu">
+                <div class="ham-bar bar-top"></div>
+                <div class="ham-bar bar-mid"></div>
+                <div class="ham-bar bar-bottom"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-mobile">
+        <div class="div-mobile">
+            <nav class="nav-links">
+                <a href="{% url 'enquetes:index' %}" class="links-mobile colorGrey">Todas Enquetes</a>
+            </nav>
+
+        </div>
+    </div>
+
 
     <main class="main">
-        <form action="{% url 'enquetes:vote' question.id %}" method="post">
-            {% csrf_token %}
-            <header>
-                <h1 class="title">{{ question.question_text }}</h1>
-                <p class="subtitle">{{ question.pub_date }}</p>
-            </header>
+        <section class="main-section">
+            <form action="{% url 'enquetes:vote' question.id %}" method="post">
+                {% csrf_token %}
+                <header>
+                    <h1 class="title">{{ question.question_text }}</h1>
+                    <p class="subtitle">{{ question.pub_date }}</p>
+                </header>
 
-            <div class="div">
-                <main>
-                    {% if error_message %}<p class="erro"><strong>{{ error_message }}</strong></p>{% endif %}
+                <div class="div">
+                    <main>
+                        {% if error_message %}<p class="erro"><strong>{{ error_message }}</strong></p>{% endif %}
 
-                    {% for choice in question.choice_set.all %}
-                    <div class="choice" onclick="choice({{ forloop.counter }})">
-                        <input class="choicebutton" type="radio" name="choice" id="choice{{ forloop.counter }}"
-                            value="{{ choice.id }}">
-                        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
-                    </div>
-
-                    {% endfor %}
-                </main>
-
-                <aside>
-                    <input class="submitbutton" type="submit" value="Confirmar">
-                    <div class="votes">
-                        <div class="div_votes">
-                            <p>votos</p>
-                            <h1>{{ question.all_votes }}</h1>
+                        {% for choice in question.choice_set.all %}
+                        <div class="choice" onclick="choice({{ forloop.counter }})">
+                            <input class="choicebutton" type="radio" name="choice" id="choice{{ forloop.counter }}"
+                                value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
                         </div>
-                        <a href="{% url 'enquetes:index' %}">
-                            <div class="div_back">
-                                <p>Voltar</p>
-                            </div>
-                        </a>
-                    </div>
-                </aside>
-            </div>
 
-        </form>
+                        {% endfor %}
+                    </main>
+
+                    <aside>
+                        <input class="submitbutton" type="submit" value="Confirmar">
+                        <div class="votes">
+                            <div class="div_votes">
+                                <p>votos</p>
+                                <h1>{{ question.all_votes }}</h1>
+                            </div>
+                            <a href="{% url 'enquetes:index' %}">
+                                <div class="div_back">
+                                    <p>Voltar</p>
+                                </div>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+
+            </form>
+        </section>
     </main>
+    <script src="{% static 'enquetes/js/nav.js' %}"></script>
 </body>
 
 </html>

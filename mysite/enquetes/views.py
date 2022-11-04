@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
 from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
@@ -13,6 +14,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'enquetes/detail.html'
@@ -21,6 +23,17 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'enquetes/results.html'
+
+class CreateView(SuccessMessageMixin, generic.CreateView):
+    model = Question
+    fields = '__all__'
+    template_name = 'enquetes/create.html'
+    success_url = reverse_lazy('enquetes:index')
+    success_message = 'Deu certo!'
+
+
+
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
