@@ -31,10 +31,6 @@ class CreateView(SuccessMessageMixin, generic.CreateView):
     success_url = reverse_lazy('enquetes:index')
     success_message = 'Deu certo!'
 
-
-
-
-
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:

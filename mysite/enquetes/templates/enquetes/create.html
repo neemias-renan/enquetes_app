@@ -1,12 +1,79 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-        {{ field.label_tag }}
-        {{ field }}
-    {% endfor %}
-    <input type="submit" value="Cadastrar Ideia">
-</form>
+<!DOCTYPE html>
+<html>
 
-{% for m in messages %}
-    {{ m }}
-{% endfor %}
+<head>
+    <meta charset='utf-8'>
+    <title>Enquetes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'enquetes/style-create.css' %}">
+    <link rel="stylesheet" href="{% static 'enquetes/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'enquetes/colors.css' %}">
+
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-left"></div>
+
+        <div class="nav-center">
+            <a href="{% url 'enquetes:index' %}" class="nav--link colorGrey">Todas Enquetes</a>
+            <a href="{% url 'enquetes:index' %}" class="nav--link colorGreen">Criar Enquetes</a>
+        </div>
+
+        <div class="nav-rigth">
+            <div class="hamburger-menu">
+                <div class="ham-bar bar-top"></div>
+                <div class="ham-bar bar-mid"></div>
+                <div class="ham-bar bar-bottom"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-mobile">
+        <div class="div-mobile">
+            <nav class="nav-links">
+                <a href="{% url 'enquetes:index' %}" class="links-mobile colorGrey">Todas Enquetes</a>
+            </nav>
+
+        </div>
+    </div>
+
+    <main class="main">
+        <section class="main-section">
+            <header>
+                <h1 class="title">Crie uma enquete</h1>
+                <p class="subtitle">Complete todos os dados para criar uma nova enquete.</p>
+            </header>
+
+            <div class="list">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="div">
+                        <label for="title">Titulo da enquete</label>
+                        <textarea placeholder="Ex: Qual é seu time?" type="text" name="title" id="title-form"></textarea>
+                    </div>
+
+                    <div class="div">
+                        <label for="option1">Opção de enquete</label>
+                        <input class="option" placeholder="Opção 1" type="text" name="option1" id="option1-form">
+                    </div>
+
+                    <div class="div">
+                        <label for="option2">Opção de enquete</label>
+                        <input class="option" placeholder="Opção 2" type="text" name="option2" id="option2-form">
+                    </div>
+
+                    <div class="div">
+                        <label for="option3">Opção de enquete</label>
+                        <input class="option" placeholder="Opção 3" type="text" name="option3" id="option3-form">
+                    </div>
+                    <input class="button" type="submit" value="Cadastrar Ideia">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'enquetes/js/nav.js' %}"></script>
+</body>
+
+</html>
