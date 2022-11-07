@@ -60,7 +60,6 @@
     background-color: #FFF;
     color: #333;
     outline: none;
-    -webkit-appearance: none;
     font-family: 'Inter', sans-serif;
     border: solid 2px transparent;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);

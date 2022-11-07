@@ -17,7 +17,7 @@
 
         <div class="nav-center">
             <a href="{% url 'enquetes:index' %}" class="nav--link colorGrey">Todas Enquetes</a>
-            <a href="{% url 'enquetes:index' %}" class="nav--link colorGreen">Criar Enquetes</a>
+            <a href="{% url 'enquetes:create' %}" class="nav--link colorGreen">Criar Enquetes</a>
         </div>
 
         <div class="nav-rigth">
@@ -46,11 +46,12 @@
             </header>
 
             <div class="list">
-                <form action="" method="post">
+                <form action="{% url 'enquetes:create' %}" method="post">
                     {% csrf_token %}
                     <div class="div">
                         <label for="title">Titulo da enquete</label>
-                        <textarea placeholder="Ex: Qual é seu time?" type="text" name="title" id="title-form"></textarea>
+                        <textarea placeholder="Ex: Qual é seu time?" type="text" name="title"
+                            id="title-form"></textarea>
                     </div>
 
                     <div class="div">

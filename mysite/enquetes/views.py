@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
+from .forms import CreateQuestionForm, CreateChoicesForm
 
 
 class IndexView(generic.ListView):
@@ -24,12 +25,22 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'enquetes/results.html'
 
-class CreateView(SuccessMessageMixin, generic.CreateView):
-    model = Question
-    fields = '__all__'
-    template_name = 'enquetes/create.html'
-    success_url = reverse_lazy('enquetes:index')
-    success_message = 'Deu certo!'
+def createView(request):
+    question = Question
+    choice = Choice
+    title = request.POST['title']
+    option1 = request.POST['option1']
+    option2 = request.POST['option2']
+    option3 = request.POST['option3']
+
+    questionCreation = Question.objects.create(question_text = title, category = "Aleatório")
+    choiceOneCreation = Choice.objects.create(question = questionCreation, choice_text = option1)
+    choiceTwoCreation = Choice.objects.create(question = questionCreation, choice_text = option2)
+    choiceThreeCreation = Choice.objects.create(question = questionCreation, choice_text = option3)
+
+
+    return render(request, "enquetes/create.html")
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
