@@ -85,17 +85,14 @@
     text-transform: uppercase; 
     font-weight: 700;
 }
-
-.Aleatório{
-    background-color: #dcedff;
-    color: #587ca9;
-}
-
 .votes{
     position: absolute;
     right: -33px;
     top: -32px;
 }
+
+
+
 
 .votes p{
     background: #F7FFFA;
@@ -108,6 +105,49 @@
     color: #678873;
     padding: 12px 20px 13px 20px;
 }
+
+.Aleatório{
+    background-color: #bff1c2;
+    color: #58a95c;
+}
+
+.Animais{
+    background-color: #ede984;
+    color: #a0850c;
+}
+
+.Arte{
+    background-color: #fbb8b8;
+    color: #a95858;
+}
+
+.Comida{
+    background-color: #ac94eb;
+    color: #5331a9;
+}
+
+.Filmes{
+    background-color: #89fada;
+    color: #2b9275;
+}
+
+.Livros{
+    background-color: #8ec7ef;
+    color: #2a7ab4;
+}
+
+.Música{
+    background-color: #abd1ff;
+    color: #587ca9;
+}
+
+
+
+
+
+
+
+
 @media (max-width: 735px) {
     .main-section {
         width: 80%;

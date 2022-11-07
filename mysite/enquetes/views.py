@@ -1,11 +1,11 @@
+from unicodedata import category
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.contrib.messages.views import SuccessMessageMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
-from .forms import CreateQuestionForm, CreateChoicesForm
 
 
 class IndexView(generic.ListView):
@@ -26,18 +26,18 @@ class ResultsView(generic.DetailView):
     template_name = 'enquetes/results.html'
 
 def createView(request):
-    question = Question
-    choice = Choice
-    title = request.POST['title']
-    option1 = request.POST['option1']
-    option2 = request.POST['option2']
-    option3 = request.POST['option3']
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        category = request.POST.get('category')
+        option1 = request.POST.get('option1')
+        option2 = request.POST.get('option2')
+        option3 = request.POST.get('option3')
 
-    questionCreation = Question.objects.create(question_text = title, category = "Aleatório")
-    choiceOneCreation = Choice.objects.create(question = questionCreation, choice_text = option1)
-    choiceTwoCreation = Choice.objects.create(question = questionCreation, choice_text = option2)
-    choiceThreeCreation = Choice.objects.create(question = questionCreation, choice_text = option3)
-
+        questionCreation = Question.objects.create(question_text = title, category = category)
+        choiceOneCreation = Choice.objects.create(question = questionCreation, choice_text = option1)
+        choiceTwoCreation = Choice.objects.create(question = questionCreation, choice_text = option2)
+        choiceThreeCreation = Choice.objects.create(question = questionCreation, choice_text = option3)
+        return HttpResponseRedirect(reverse('enquetes:index'))
 
     return render(request, "enquetes/create.html")
 

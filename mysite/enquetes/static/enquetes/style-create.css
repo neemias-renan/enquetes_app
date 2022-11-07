@@ -30,7 +30,7 @@
     float: left;
 }
 
-.list .div{
+.list .div {
     float: left;
     width: 100%;
     margin-bottom: 35px;
@@ -39,7 +39,7 @@
     flex-direction: column;
 }
 
-.list .div label{
+.list .div label {
     font-size: 15px;
     color: #929292;
     font-weight: 600;
@@ -47,7 +47,7 @@
     float: left;
 }
 
-.list .div textarea{
+.list .div textarea {
     overflow: hidden;
     resize: none;
     height: 124px;
@@ -65,7 +65,7 @@
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);
 }
 
-.list .div .option{
+.list .div .option {
     padding-right: 150px;
 
     float: left;
@@ -83,7 +83,7 @@
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);
 }
 
-.list .button{
+.list .button {
     float: inherit;
     background-color: #4199FF;
     padding: 22px 60px 20px 60px;
@@ -92,13 +92,44 @@
     font-size: 17px;
     font-weight: 600;
     border: none;
+    cursor: pointer;
 }
 
+.list .button:hover {
+    background-color: #357dd0;
+}
 
+.list .division {
+    width: 100%;
+    height: 2px;
+    background-color: #F0F0F0;
+    float: left;
+    margin-bottom: 35px;
+}
+
+.input-selection {
+    width: 400px;
+    float: left;
+    border: none;
+    padding: 18px 20px 17px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #FFF;
+    color: #333;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    border: solid 2px transparent;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);
+    cursor: pointer;
+
+}
 
 @media (max-width: 735px) {
     .main-section {
         width: 80%;
     }
-
+    .input-selection {
+        width: 100%;
+    }
 }
